@@ -17,7 +17,7 @@ for INDEX in $INDICES; do
 
 		curl -s -XPOST "${CLUSTER_URI}/${INDEX}-${DATE}/_search" -d' {"size":0,"query":{"filtered":{"query":{"query_string":{"analyze_wildcard":true,"query":"*"}}}},"aggs":{"2":{"terms":{"field":"host","size":100,"order":{"_count":"desc"}}}}}'  | jq '.aggregations' | jq '.["2"]' | jq '.buckets[].key' > ${DATA_DIR}/${INDEX}-${DATE}.json
 
-		cat ${DATA_DIR}/${INDEX}-${DATE}.json | jo -a > ${DATA_DIR}/${INDEX}-${DATE}_hostsarray.json
+		cat ${DATA_DIR}/${INDEX}-${DATE}.json | sort | jo -a > ${DATA_DIR}/${INDEX}-${DATE}_hostsarray.json
 
 	done
 

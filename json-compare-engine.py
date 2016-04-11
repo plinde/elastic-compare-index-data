@@ -2,6 +2,8 @@ import json
 from pprint import pprint
 import sys
 import datetime
+import ConfigParser
+import requests
 
 cluster_host = sys.argv[1]
 cluster_port = sys.argv[2]
@@ -50,7 +52,6 @@ if result == False:
     json_data = json.dumps(payload)
     print str(json_data)
     
-    import ConfigParser
     Config = ConfigParser.ConfigParser()
     Config.read("json-compare-engine.props")
     
@@ -58,6 +59,4 @@ if result == False:
     http_host = Config.get('HTTPOutput', 'host')
     http_port = Config.get('HTTPOutput', 'port')
 
-    
     r = requests.post(http_proto + '://' + http_host + ':' + http_port, data=json.dumps(payload))
-    #r = requests.post('http://localhost:8080', data=json.dumps(payload))

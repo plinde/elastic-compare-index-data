@@ -1,4 +1,4 @@
-pre-req: utils
+pre-reqs:
 curl
 jq - https://stedolan.github.io/jq/
 jo - https://github.com/jpmens/jo

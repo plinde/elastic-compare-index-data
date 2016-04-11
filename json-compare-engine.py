@@ -3,8 +3,11 @@ from pprint import pprint
 
 import sys
 
-json_loads_1 = sys.argv[1]
-json_loads_2 = sys.argv[2]
+cluster_host = sys.argv[1]
+cluster_port = sys.argv[2]
+
+json_loads_1 = sys.argv[3]
+json_loads_2 = sys.argv[4]
 
 #json_loads_1 = "data/index-2016.04.10_hostsarray.json"
 #json_loads_2 = "data/index-2016.04.11_hostsarray.json"
@@ -34,6 +37,6 @@ print "result was: " + str(result)
 if result == False:
     pprint(data1)
     pprint(data2)
+    pprint(cluster_host+":"+cluster_port)
+    
 
-    
-    

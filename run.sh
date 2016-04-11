@@ -21,8 +21,8 @@ for INDEX in $INDICES; do
 
 	done
 
-	### Do a comparison:
-	python json-compare-engine.py $(for DATE in $DATES; do echo ${DATA_DIR}/${INDEX}-${DATE}_hostsarray.json; done | xargs)
+	### Do a comparison; args like CLUSTER_HOST, CLUSTER_PORT, then 2-pair'd fields for the two input files
+	python json-compare-engine.py $CLUSTER_HOST $CLUSTER_PORT $(for DATE in $DATES; do echo ${DATA_DIR}/${INDEX}-${DATE}_hostsarray.json; done | xargs)
 
 
 done

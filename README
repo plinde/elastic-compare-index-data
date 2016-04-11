@@ -1,0 +1,2 @@
+* 1. populate your Elasticsearch cluster connection info in your shell's env vars OR run setenv.sh
+* 2. ./run.sh (currently hard-coded to use 'index' and 2016-04.10, 2016.04.11 as hard-coded values)

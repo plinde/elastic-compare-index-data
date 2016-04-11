@@ -1,0 +1,5 @@
+[HTTPOutput]
+proto = http
+host = localhost
+port = 8080
+

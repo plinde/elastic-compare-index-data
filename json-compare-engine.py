@@ -8,9 +8,6 @@ cluster_port = sys.argv[2]
 json_loads_1 = sys.argv[3]
 json_loads_2 = sys.argv[4]
 
-print json_loads_1
-print json_loads_2
-
 with open(json_loads_1) as data_file:    
     data1 = json.load(data_file)
 #pprint(data1)
@@ -52,3 +49,15 @@ if result == False:
     
     json_data = json.dumps(payload)
     print str(json_data)
+    
+    import ConfigParser
+    Config = ConfigParser.ConfigParser()
+    Config.read("json-compare-engine.props")
+    
+    http_proto = Config.get('HTTPOutput', 'proto')
+    http_host = Config.get('HTTPOutput', 'host')
+    http_port = Config.get('HTTPOutput', 'port')
+
+    
+    r = requests.post(http_proto + '://' + http_host + ':' + http_port, data=json.dumps(payload))
+    #r = requests.post('http://localhost:8080', data=json.dumps(payload))

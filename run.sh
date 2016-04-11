@@ -2,14 +2,8 @@
 
 . setenv.sh
 
-DATA_DIR="data"
 
 if [[ ! -d ${DATA_DIR} ]]; then mkdir -p ${DATA_DIR}; fi
-
-CLUSTER_URI="${CLUSTER_PROTO}://${CLUSTER_USER}:${CLUSTER_PASS}@${CLUSTER_HOST}"
-
-INDICES="index"
-DATES="2016.04.10 2016.04.11"
 
 for INDEX in $INDICES; do
 
